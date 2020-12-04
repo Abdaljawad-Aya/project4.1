@@ -1,12 +1,14 @@
-import './Cards.css'
+import './PhotographersCards.css'
 
 
-function Cards() {
+function PhotographersCards() {
 
 
     return (
+
+        <div className="Photographers-title"><p>Our Photographers</p>
         <div className="All">
-         <div className='Card'>
+         <div className='Photographer-Card'>
             <div className='upper-container'>
                 <div className='image-container'>
                     <img src="https://images.unsplash.com/photo-1589016025017-a2080e95326f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt='' height="100px" width="100px " />
@@ -18,7 +20,7 @@ function Cards() {
               </div>
             
         </div>
-        <div className='Card'>
+        <div className='Photographer-Card'>
             <div className='upper-container'>
                 <div className='image-container'>
                     <img src="https://images.unsplash.com/photo-1552266080-9db174b37b88?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80" alt='' height="100px" width="100px " />
@@ -28,7 +30,7 @@ function Cards() {
                 <h3>Anas Al-Kurdi</h3>
                 <p> A young professional who has taken on photography as a passion. His beautiful eye and high-profile editing can clearly be seen in every shot he works on.</p>
                 </div>
-        </div><div className='Card'>
+        </div><div className='Photographer-Card'>
             <div className='upper-container'>
                 <div className='image-container'>
                     <img src="https://images.unsplash.com/photo-1495580621852-5de0cc907d2f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=765&q=80" alt='' height="100px" width="100px " />
@@ -38,7 +40,7 @@ function Cards() {
                 <h3> Linda Al-Khoury</h3>
                 <p>Al-Khoury is the owner of Darat Al Tasweer, a specialized centre for photography located in the inspiring Jabal Al Lweibdeh. She specializes in breathtaking stills of nature and environment and is widely known for hosting weekly and monthly photography hangouts, where she shares her expertise. </p>
                 </div>
-        </div><div className='Card'>
+        </div><div className='Photographer-Card'>
             <div className='upper-container'>
                 <div className='image-container'>
                     <img src="https://images.unsplash.com/photo-1524947270643-a6db7e66d593?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt='' height="100px" width="100px " />
@@ -50,7 +52,8 @@ function Cards() {
                  </div>
         </div>
         </div>
-       
+        </div>
+
        
        
         
@@ -59,4 +62,4 @@ function Cards() {
 
 
 
-export default Cards
+export default PhotographersCards

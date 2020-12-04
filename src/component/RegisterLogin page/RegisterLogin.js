@@ -40,16 +40,24 @@ export default function RegisterForm() {
   // const [userListObj, setUserListObj] = useState({});
 
   function onSubmit(data) {
-    if ((JSON.stringify(data.password) === JSON.stringify(data.confirm))) {
-        
-      console.log(data);
-    //  JSON.stringify(data.phone)
-        window.localStorage.setItem(data.phone, JSON.stringify(data))
-       
-      }
-      else {
-        console.log('error password');
-      }
+    if ((localStorage.getItem(data.username))) {
+
+      alert('You already have an account ')
+     }
+    
+    else {
+      
+      if ((JSON.stringify(data.password) === JSON.stringify(data.confirm))) {
+              
+        window.localStorage.setItem(data.username, JSON.stringify(data))
+        console.log(data);
+        alert('the account was created')
+         
+        }
+        else {
+        alert('the password unmatched ')
+        }
+     }
     
 }
 
@@ -134,7 +142,7 @@ export default function RegisterForm() {
             />
             </div>
             <div >
-            <button className={styles.btn} type="submit" disabled={formState.isSubmitting}>
+            <button className={styles.formBtn} type="submit" disabled={formState.isSubmitting}>
             Submit
             </button>
             </div>

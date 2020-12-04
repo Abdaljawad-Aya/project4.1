@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Modal, Button, Row, Col, Form} from 'react-bootstrap';
-import './Form.css'
+import './Booking.css'
 
 export class AddMsg extends Component{
     constructor(props){

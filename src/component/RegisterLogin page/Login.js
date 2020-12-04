@@ -8,10 +8,10 @@ import styles from './RegisterLogin.module.css'
 
 
 // Icons form React-icons
-// import { AiOutlineUser } from 'react-icons/ai';
+import { AiOutlineUser } from 'react-icons/ai';
 // import { HiOutlineMail } from 'react-icons/hi';
 import { RiLockPasswordLine } from 'react-icons/ri';
-import { FiPhone } from 'react-icons/fi';
+// import { FiPhone } from 'react-icons/fi';
 
 
 const stylesNode = {
@@ -33,17 +33,18 @@ const LogIn = () => {
   
 
   function onSubmitLogIn(data) {
-    if (!(localStorage.getItem(data.phone))) {
+    if (!(localStorage.getItem(data.username))) {
       alert('the phone is not used please register')
     }
     else {
-      let tempUser = JSON.parse(localStorage.getItem(data.phone));
+      let tempUser = JSON.parse(localStorage.getItem(data.username));
       if (!(data.password === tempUser.password)) {
         
         alert('the password is not match')
       }
       else {
         alert('done')
+        sessionStorage.setItem('user',JSON.stringify(tempUser) )
         
       }
 
@@ -59,18 +60,19 @@ const LogIn = () => {
       </div>
       <form  onSubmit={handleSubmit(onSubmitLogIn)}>
       <div>
-      <FiPhone/>
-      <input
-      name="phone"
-      type="tel"
-      ref={register({
-        required: true,
-        minLength: 10,
-        pattern: /^([0][7|8|9][0-9]{8})$/g
-      })}
-      style={{ ...stylesNode.input, borderColor: errors.phone && "red" }}
-      placeholder="Phone"
-      />
+            <AiOutlineUser/>
+            <input
+            name="username"
+            ref={register({
+              required: true,
+              minLength: 3,
+              maxLength: 20,
+              pattern: /^[A-Za-z]+$/i,
+              
+            })}
+            style={{ ...stylesNode.input, borderColor: errors.username && "red" }}
+            placeholder="Username"
+            />
       </div>
       
       <div>
@@ -88,7 +90,7 @@ const LogIn = () => {
             />
             </div>
             <div >
-            <button className={styles.btn} type="submit" disabled={formState.isSubmitting}>
+            <button className={styles.formBtn} type="submit" disabled={formState.isSubmitting}>
             Submit
             </button>
             </div>

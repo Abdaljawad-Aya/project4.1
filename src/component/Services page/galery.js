@@ -25,8 +25,9 @@ class Galery extends Component {
                                 {this.props.cost}
                             </b>
                             </i>
-                        </p>
+                        </p><a href="/Booking">
                         <button onClick={this.props.setData}>book now</button>
+                        </a>
                     </div>
                 </div>
 

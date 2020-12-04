@@ -12,6 +12,7 @@ import { Carousel } from 'react-responsive-carousel';
 import Video from "./video";
 import OurServices from "../data/our_services";
 import Developers from "../data/developers";
+import PhotographersCards from "../PhotographersCards";
 
 import Logo from "../images/logo3.png";
 import Img1 from "../images/baby7.jpeg";
@@ -32,6 +33,7 @@ class LandingPage extends React.Component {
                 <Videos />
                 <Testimonials />
                 <DeveloperCards developers={Developers} />
+                <PhotographersCards />
             </div>
         );
     }
