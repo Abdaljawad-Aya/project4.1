@@ -1,0 +1,50 @@
+/* --------------------------------------------------------------------- */
+.intro_title {
+  /* font-weight: 700; */
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.videos_section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+iframe {
+  width: 25vw;
+  height: 30vh;
+  margin: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  iframe {
+    width: 80vw;
+    height: 20vh;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  iframe {
+    width: 35vw;
+    height: 20vh;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px){
+  iframe {
+    width: 25vw;
+    height: 30vh;
+    margin: 1rem;
+  }
+}

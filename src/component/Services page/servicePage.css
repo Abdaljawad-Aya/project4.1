@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+  margin: 0%;
+  padding: 0%;
+}
+
+.App {
+  display: grid;
+  width: 100%;
+  height: 99vh;
+  justify-content: center;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+
+  /* align-items: center; */
+  /* margin: 2rem; */
+
+
+}
+
+.servis-taps a {
+  color: #000 !important;
+
+}
+
+.Accordion-color {
+  color: #000 !important;
+}

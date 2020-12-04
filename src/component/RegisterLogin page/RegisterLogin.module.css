@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+.formContainer{
+    display: flex;
+    justify-content: center;
+    /* border: 2px solid red; */
+    padding: 1rem;
+    align-items: center;
+    align-content: center; 
+    height: 100vh;
+    flex-direction: column;   
+
+}
+.formContainerItems{
+    color: white;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: row;   
+    justify-content: center;
+    align-items: center;
+    align-content: center; 
+    /* border: 2px solid red; */
+    padding: 1rem;
+    height: 50vh;
+    width: 70vw;
+    font-size: 24px;
+}
+.sps{
+    border: 1px solid white;
+    display: flex;
+    width:45vw;
+    flex-direction: column;   
+    justify-content: center;
+    align-items: center;
+    align-content: center; 
+    text-align: center;
+    margin: 3rem;
+    background-color: #C7B7AA;
+    padding:0 2rem;
+}
+.sps>div{
+    margin: 2rem;
+}
+.btn{
+    width:55%;
+    height: 3rem;
+    color: #8b8077;
+    font-family:sans-serif;
+    line-height: 1rem;
+    text-align: center;
+    font-size: large;
+    
+}
+.btn:hover{
+    width:55%;
+    height: 3rem;
+    color: #fff;
+    background-color: #8b8077;
+    font-family:sans-serif;
+    line-height: 1rem;
+    text-align: center;
+    font-size: large;    
+}
+.btn:active {
+   cursor: wait;
+}
+
+form > div{
+    padding: 0.3rem;
+}
+
+form > div>input{
+    margin: 1.2rem;
+    padding: 0.3rem;
+}

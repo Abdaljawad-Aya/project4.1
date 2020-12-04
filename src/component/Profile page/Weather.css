@@ -1,0 +1,62 @@
+/* .container{
+  background: #E8edf0;
+  position: absolute;
+  height : 200px;
+  width : 200px;
+  margin:  auto;
+} */
+
+
+/* appContainer */
+
+#appContainer{
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  z-index: 2;
+}
+
+/* weatherImage */
+
+#weatherImage{
+  width: 120px;
+  height: 80px;
+}
+
+/* imgRow */
+
+#imgRow{
+  text-align: right;
+}
+
+/* tempRow */
+
+#tempRow{
+  text-align: right;
+}
+
+/* bigText */
+
+.bigText{
+  font-family: "Arial Narrow";
+  /* color: #1F6E86; */
+  color: black;
+  font-size: 60px;
+}
+
+
+
+.regularText{
+  font-family: "Arial Narrow";
+  color:black;
+  font-size:15px;
+}
+
+#humidityRow, #locationRow{
+  margin-left: 10px;
+  margin-top: 2px;
+}
+
+#imgRow, #tempRow{
+  margin-right : 10px;
+}
