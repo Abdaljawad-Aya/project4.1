@@ -12,26 +12,18 @@ class CardGo extends React.Component {
   // const setData() {
   //   this.userData = JSON.parse(sessionStorage.getItem('user'))
   //   let data sessionStorage.getItem('user')) 
-     
-         
   render() {
-    return (
-       
-      <div className="App">  
-            
-        
-                      <div className="Photography">
-                           <div className='Booking'>
-                           <h1>BOOKED SESSION</h1>
-                           </div> <br/>
-                           <p>Location{this.state.location}</p>
-                           <p>Date{this.state.date}</p>
-                           <p>Time{this.state.TimeOfSession}</p>
-                           <p>Photographer Name{this.state.CameraMan}</p>
-                          
-                      </div>
-                            
-              </div>
+    return ( 
+      <div>  
+        <div className="Photography">
+          <div className="booked_photo_sessions_cards">
+            <div>Location: {this.state.location}</div>
+            <div>Date: {this.state.date}</div>
+            <div>Time: {this.state.TimeOfSession}</div>
+            <div>Photographer: {this.state.CameraMan}</div>
+          </div>
+        </div>
+      </div>
     );
   }
 }

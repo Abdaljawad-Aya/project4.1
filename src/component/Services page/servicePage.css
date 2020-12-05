@@ -9,13 +9,18 @@
   width: 100%;
   height: 99vh;
   justify-content: center;
-  margin-top: 5rem;
-  margin-bottom: 2rem;
+  /* height: 105vw; */
+  margin-bottom: 70rem;
+}
 
-  /* align-items: center; */
-  /* margin: 2rem; */
+.accordion {
+  margin-top: 0% !important;
+}
 
-
+.card {
+  margin-top: 0% !important;
+  background-color: #F9F7F6 !important;
+  border-bottom: none !important;
 }
 
 .servis-taps a {
@@ -25,4 +30,12 @@
 
 .Accordion-color {
   color: #000 !important;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 414px) {
+
+  /* .accordion {
+    height: 10vw !important;
+  } */
+
 }

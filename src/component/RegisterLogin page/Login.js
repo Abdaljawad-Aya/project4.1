@@ -24,7 +24,7 @@ const stylesNode = {
     height: "2rem",
     padding:"1rem"
   },
-};
+}; 
 
 const LogIn = () => {
     const { register, handleSubmit, errors, formState } = useForm({
@@ -34,7 +34,7 @@ const LogIn = () => {
 
   function onSubmitLogIn(data) {
     if (!(localStorage.getItem(data.username))) {
-      alert('the phone is not used please register')
+      alert('Invalid Login User Name')
     }
     else {
       let tempUser = JSON.parse(localStorage.getItem(data.username));
@@ -43,9 +43,9 @@ const LogIn = () => {
         alert('the password is not match')
       }
       else {
-        alert('done')
         sessionStorage.setItem('user',JSON.stringify(tempUser) )
-        
+        localStorage.setItem('isLogin',true )
+         { window.location.href = '/servicePage' }
       }
 
     }
@@ -78,7 +78,8 @@ const LogIn = () => {
       <div>
             <RiLockPasswordLine/>
             <input
-            name="password"
+                  name="password"
+                  type="password"
             ref={register({
               required: true,
               minLength: 6,

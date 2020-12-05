@@ -51,7 +51,10 @@ export default function RegisterForm() {
               
         window.localStorage.setItem(data.username, JSON.stringify(data))
         console.log(data);
-        alert('the account was created')
+        // alert('the account was created')
+        { window.location.href = '/Login' }
+
+
          
         }
         else {
@@ -73,7 +76,8 @@ export default function RegisterForm() {
             <div>
             <AiOutlineUser/>
             <input
-            name="username"
+                name="username"
+                type="text"
             ref={register({
               required: true,
               minLength: 3,
@@ -89,7 +93,8 @@ export default function RegisterForm() {
             <div>
             <HiOutlineMail/>
             <input
-            name="email"
+                name="email"
+                type="email"
             ref={register({
               required: true,
               validate: (input) => isEmail(input),
@@ -99,10 +104,14 @@ export default function RegisterForm() {
             placeholder="Email"
             />
             </div>
+            <div style={{ fontSize: '12px',paddingLeft:"12%",paddingRight:"12%",}}>
+              The password must contain at least one uppercase and lowercase letters, numbers, and symbols within 8 digits.
+              </div>
             <div>
             <RiLockPasswordLine/>
             <input
-            name="password"
+                name="password"
+                type="password"
             ref={register({
               required: true,
               minLength: 6,
@@ -111,12 +120,13 @@ export default function RegisterForm() {
             })}
             style={{ ...stylesNode.input, borderColor: errors.password && "red" }}
             placeholder="Password"
-            />
+              />
             </div>
             <div>
             <RiLockPasswordLine/>
             <input
-            name="confirm"
+                name="confirm"
+                type="password"
             ref={register({
               required: true,
               minLength: 6,
@@ -131,7 +141,7 @@ export default function RegisterForm() {
             <FiPhone/>
             <input
                 name="phone"
-                type="tel"
+                type='tel'
             ref={register({
               required: true,
               minLength: 10,
@@ -139,12 +149,14 @@ export default function RegisterForm() {
             })}
             style={{ ...stylesNode.input, borderColor: errors.phone && "red" }}
             placeholder="Phone"
-            />
+              />
+              <p style={{fontSize:'10px'}}>07X-X
+                XX-XXX</p>
             </div>
             <div >
-            <button className={styles.formBtn} type="submit" disabled={formState.isSubmitting}>
-            Submit
-            </button>
+                <button className={styles.formBtn} type="submit" disabled={formState.isSubmitting}>
+                Submit
+                </button>
             </div>
           </form>
         </div>

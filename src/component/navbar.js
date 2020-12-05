@@ -4,6 +4,8 @@ import Logo from "./images/logo3.png";
 import { Navbar, Nav } from "react-bootstrap";
 
 class MyNavbar extends React.Component {
+
+  isLoggedIn = JSON.parse(localStorage.getItem('isLogin')) ;
   render() {
     return (
       <div>
@@ -23,16 +25,24 @@ class MyNavbar extends React.Component {
               <Nav.Link href="/" class="nav-link">
                 Home
               </Nav.Link>
-              <Nav.Link href="/servicePage">Our Services</Nav.Link>
-            </Nav>
-            <Nav>
-              <Nav.Link href="/RegisterForm"> Register</Nav.Link>
-              <Nav.Link href="LogIn"> Login</Nav.Link>
-              <Nav.Link href="#"> Logout</Nav.Link>
-              <Nav.Link href="/AppOne">
-                <i className="fas fa-user"></i> Profile
-              </Nav.Link>
-            </Nav>
+              {(this.isLoggedIn == true)&& <Nav.Link href="/servicePage">Our Services</Nav.Link>}
+              </Nav>
+              
+              {(!(this.isLoggedIn == true)) ?
+                <Nav>
+                <Nav.Link href="/RegisterForm"> Register</Nav.Link>
+                <Nav.Link href="LogIn"> Login</Nav.Link>
+                </Nav>
+                :
+                <Nav>
+                <Nav.Link href="/login" onClick={()=>localStorage.setItem('isLogin',false)}> Logout</Nav.Link>
+                <Nav.Link href="/AppOne">
+                  <i className="fas fa-user"></i> Profile
+                </Nav.Link>
+                 </Nav>
+                
+              }
+           
           </Navbar.Collapse>
         </Navbar>
       </div>

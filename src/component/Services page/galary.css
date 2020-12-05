@@ -1,13 +1,10 @@
 .mainCard {
     height: 35vh;
     width: 53vw;
-    background: #F7F7F7;
-    box-shadow: 0px 1px 10px 1px #C7B7AA;
+    background: white;
+    box-shadow: 5px 10px 18px #666666;
     margin: auto;
     margin-top: 2rem;
-    /* margin-bottom: 1rem;
-    margin-left: 20rem; */
-
 }
 
 .mainCard:hover {
@@ -16,7 +13,7 @@
 
 .imgCard img {
     position: relative;
-    left: 40vw;
+    left: 18vw;
     top: 6vh;
 }
 
@@ -32,7 +29,7 @@
 .CardContent button {
 
     position: relative;
-    left: 14vw;
+    left: -9.5vw;
     bottom: 13.5vh;
     background-color: white;
     color: black;
@@ -40,7 +37,7 @@
     font-size: .75rem;
     width: 5rem;
     height: 2rem;
-    justify-content: center;
+    /* justify-content: ; */
     align-items: center;
 
 
@@ -66,7 +63,7 @@
 
     .imgCard img {
         position: relative;
-        left: 48vw;
+        left: 22vw;
         top: 4vh;
     }
 
@@ -82,7 +79,7 @@
     .CardContent button {
 
         bottom: 9vh;
-        left: 17vw;
+        left: -15vw;
     }
 }
 
@@ -98,7 +95,7 @@
 
     .imgCard img {
         position: relative;
-        left: 48vw;
+        left: 22vw;
         top: 4.75vh;
     }
 
@@ -112,7 +109,7 @@
     }
 
     .CardContent button {
-        left: 18.5vw;
+        left: -12vw;
         bottom: 6vh;
     }
 }
@@ -133,7 +130,7 @@
         padding-top: .5rem;
         padding-left: .5rem;
         position: relative;
-        left: 12vw;
+        left: -1vw;
         top: 3.5vh;
     }
 
@@ -151,7 +148,7 @@
     .CardContent button {
 
         top: 4vh;
-        left: 21vw;
+        left: 0vw;
         width: 4.5rem;
         height: 2rem;
         font-size: .75rem;
@@ -170,7 +167,7 @@
 
     .imgCard img {
         position: relative;
-        left: 12vw;
+        left: -.75vw;
         top: 5vh;
     }
 
@@ -190,7 +187,7 @@
     .CardContent button {
 
         top: 5.5vh;
-        left: 25.5vw;
+        left: 1vw;
         width: 4rem;
         height: 2rem;
         font-size: .65rem;
@@ -209,7 +206,7 @@
 
     .imgCard img {
         position: relative;
-        left: 12vw;
+        left: 0vw;
         top: 5vh;
     }
 
@@ -228,7 +225,7 @@
     .CardContent button {
 
         top: 6.5vh;
-        left: 29vw;
+        left: 2.5vw;
         width: 4rem;
         height: 2rem;
         font-size: .65rem;

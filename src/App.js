@@ -2,7 +2,7 @@
 import MyNavbar from './component/navbar'
 import LandingPage from './component/Landing page/landingPage'
 import RegisterForm from './component/RegisterLogin page/RegisterLogin'
-import LogIn from './component/RegisterLogin page/Login'
+import Login from './component/RegisterLogin page/Login'
 import AppOne from './component/Profile page/AppOne'
 import Booking from './component/Booking page/Booking'
 import Footer from './component/footer'
@@ -18,7 +18,7 @@ function App() {
 <Switch>
 <Route  path="/" exact component={LandingPage} />
  <Route  path="/RegisterForm"  component={RegisterForm} />
- <Route  path="/LogIn"  component={LogIn} />
+ <Route  path="/Login"  component={Login} />
 <Route  path="/servicePage"  component={ServicPage} /> 
 <Route  path="/Booking"  component={Booking} /> 
  <Route  path="/AppOne"  component={AppOne} />
