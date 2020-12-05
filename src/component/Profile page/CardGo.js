@@ -17,10 +17,13 @@ class CardGo extends React.Component {
       <div>  
         <div className="Photography">
           <div className="booked_photo_sessions_cards">
-            <div>Location: {this.state.location}</div>
-            <div>Date: {this.state.date}</div>
-            <div>Time: {this.state.TimeOfSession}</div>
-            <div>Photographer: {this.state.CameraMan}</div>
+            <div>Location: {this.props.location}</div>
+            <div>Date: {this.props.date}</div>
+            <div>Time: {this.props.TimeOfSession}</div>
+            <div>Photographer: {this.props.CameraMan}</div>
+            <div>Theming: {this.props.theming}</div>
+            <div>Price: {this.props.price}</div>
+            <div>Duration: {this.props.duration}</div>
           </div>
         </div>
       </div>

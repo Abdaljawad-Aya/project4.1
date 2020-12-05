@@ -134,5 +134,3 @@ render(){
 
 export default Booking
 
-
-// 
