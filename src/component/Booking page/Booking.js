@@ -1,5 +1,9 @@
-import React, { Component } from "react";
+import React, { Component,useState } from "react";
+import DatePicker from "react-datepicker";
+
 import './Booking.css'
+import "react-datepicker/dist/react-datepicker.css";
+
 import {AddMsg} from './AddMsg';
 import {Button, ButtonToolbar} from 'react-bootstrap';
 
@@ -13,9 +17,10 @@ class Booking extends Component {
         this.onChangeTime = this.onChangeTime.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.state = {
-           date: '',
+           selectedDate: '',
            time: '',
-           isSubmit:false,
+           isSubmit: false,
+            
         }
     }
 
@@ -30,9 +35,9 @@ class Booking extends Component {
 
           //React lifecycle
           componentDidMount() {
-          this.userData = JSON.parse(localStorage.getItem('user')); 
+          this.userData = JSON.parse(sessionStorage.getItem('date')); 
         
-        if (localStorage.getItem('user')) {
+        if (sessionStorage.getItem('date')) {
             this.setState({
                 date: this.userData.date,
                 time: this.userData.time
@@ -40,48 +45,74 @@ class Booking extends Component {
         } else {
             this.setState({
                 date: '',
-                time: ''
+                time: '10'
             })
         }
     }
     componentWillUpdate(nextProps, nextState) {
-        localStorage.setItem('user',JSON.stringify(nextState));
+        // sessionStorage.setItem('date', JSON.stringify(nextState));
+        let a=JSON.parse(sessionStorage.getItem('offers1'))
+        let b = a.slice(-1)[0]
+        a.pop()
+        b["SessionDate"] = this.state.selectedDate;
+        b["time"] = this.state.time;
+        a.push(b)
+        sessionStorage.setItem("offers1", JSON.stringify(a));
     }
 
     onSubmit(e) {
+
         e.preventDefault();
+        
         console.log(this.state.props)
     }
 
-
-    
 render(){
     let Close =() => this.setState({ isSubmit:false});
     return(
-        <div class="form_wrapper">
-        <div class="form_container">
-            <div class="title_container">
+        <div className="form_wrapper">
+        <div className="form_container">
+            <div className="title_container">
             <h2>Book your photo shoot</h2>
             <h3>Book an appointment by filling out this fields, choose the date and time that suit for you, and we will call you soon! </h3>
             </div>
             <form onSubmit={this.onSubmit}>
-            <div class="row clearfix">
-                <div class="col_half">
+            <div className="row clearfix">
+                <div className="col_half">
                 <label>Date:</label>
-                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                    <input type="date" name="date" placeholder="Choose the date" value={this.state.date} onChange={this.onChangeDate} required />
+                <div className="input_field"> 
+                    {/* <input type="date" name="date" placeholder="Choose the date" value={this.state.date} onChange={this.onChangeDate} required /> */}
+                    <DatePicker 
+                    selected={this.state.selectedDate} 
+                    onChange={date => {
+                        this.setState({selectedDate:date})
+                    }}
+                    dateFormat='dd/MM/yyyy'
+                    minDate={new Date()}
+                    // filterDate={date => date.getDay() != 6 && date.getDay() != 0}
+                    isClearable
+                    />
+
                 </div>
                 </div>
-                <div class="col_half">
+                <div className="col_half">
                 <label>Time:</label>
-                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
-                    <input type="time" name="time" placeholder="Choose the time" value={this.state.time} onChange={this.onChangeTime} required  />
+                <div className="input_field"> 
+                <select id="time" name="time" onChange={this.onChangeTime}  required>
+                                <option value="10 AM">10 AM</option>
+                                <option value="12 PM">12 AM</option>
+                                <option value="2 PM">2 PM</option>
+                                <option value="2 PM">4 PM</option>
+                                <option value="6 PM">6 PM </option>
+                                <option value="8 PM">8 PM</option>
+                            </select>
+                    {/* <input type="time" name="time" placeholder="Choose the time" value={this.state.time} onChange={this.onChangeTime} required  /> */}
                 </div>
                 </div>
             </div>
             
             <ButtonToolbar>
-            <Button className="Button-Submit" onClick={()=> this.setState({isSubmit: true})}> Submit </Button>
+            <Button className="Button-Submit" onClick={()=> ( this.setState({isSubmit: true }))}> Submit </Button>
             <AddMsg show={this.state.isSubmit}
             onHide = {Close} />
            </ButtonToolbar>
@@ -89,9 +120,19 @@ render(){
         </div> 
         </div>
     )}}
+
+    // function Date_Picker() {
+    //     const [selectedDate, setSelectedDate]=useState(null)
+    //     return (
+    //       <div>
+            
+    //       </div>
+    //     );
+    //   }
  
 
 
 export default Booking
 
 
+// 

@@ -5,9 +5,10 @@ import { Accordion, Card, Button } from 'react-bootstrap';
 
 class Coustem extends Component {
     userData;
+
     state = {
         value: 0,
-        value2: 0,
+        location: 0,
         theme: 0,
         photographer: 0,
 
@@ -19,19 +20,19 @@ class Coustem extends Component {
 
     // React Life Cycle
     componentDidMount() {
-        this.userData = JSON.parse(localStorage.getItem('user'));
+        this.userData = JSON.parse(sessionStorage.getItem('offers'));
 
-        if (localStorage.getItem('user')) {
+        if (sessionStorage.getItem('offers')) {
             this.setState({
                 value: this.userData.value,
-                value2: this.userData.value2,
+                location: this.userData.location,
                 theme: this.userData.theme,
                 photographer: this.userData.photographer
             })
         } else {
             this.setState({
                 value: 0,
-                value2: 0,
+                location: 0,
                 theme: 0,
                 photographer: 0
             })
@@ -39,17 +40,17 @@ class Coustem extends Component {
     }
 
     componentWillUpdate(nextProps, nextState) {
-        localStorage.setItem('user', JSON.stringify(nextState));
+        sessionStorage.setItem('offers', JSON.stringify(nextState));
     }
 
     onSubmit(e) {
         e.preventDefault()
-        // console.log(this.state.props)
+       
     }
 
 
     render() {
-        const { value, value2, theme, photographer } = this.state
+        const { value, location, theme, photographer } = this.state
         return (
             <div className='customization'>
 
@@ -73,7 +74,7 @@ class Coustem extends Component {
 
                             <label for="theme">Chose the session location:</label>
                             <br />
-                            <select id="location" name="value2" onChange={this.onChange}>
+                            <select id="location" name="location" onChange={this.onChange}>
                                 <option value="15">Indoor</option>
                                 <option value="20">Outdoor</option>
 
@@ -107,12 +108,19 @@ class Coustem extends Component {
                             <br />
 
 
-                            <h5>The cost of your photo session is({eval(value) + eval(value2) + eval(theme) + eval(photographer)})</h5>
-                            <button>Book now</button>
+                            <h5>The cost of your photo session is({eval(value) + eval(location) + eval(theme) + eval(photographer)})</h5>
+                           
+                               
+                         
 
                         </form>
 
                     </div>
+                    <a href="/Booking">
+                     <button >
+                        Book now
+                    </button>
+                    </a>
                     {/* <h5>YOU CAN COUSTMIZE YOUR SESSION FROM <a onClick={() => this.setState({ shown: !this.state.shown })}>HRER</a></h5> */}
                 </div>
 
