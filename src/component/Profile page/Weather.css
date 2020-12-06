@@ -44,7 +44,7 @@
 .booked_photo_sessions_cards{
   text-align: left;
   background-color: #f1edea;
-  height: 20vh;
+  height: 25vh;
   padding: 1rem;
 }
 .Photography{
@@ -227,7 +227,7 @@
       width: 50vw;
     }
     .booked_photo_sessions_cards{
-      height: 20vh;
+      height: 25vh;
       padding: 1rem;
     } 
 

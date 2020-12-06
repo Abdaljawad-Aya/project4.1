@@ -2,6 +2,9 @@
 .our_services_container {
     margin-top: 5rem;
 }
+.hidden_title{
+    display: none;
+}
 .opaque_container {
     color: white;
     width: 40vw;
@@ -63,6 +66,11 @@
         font-weight: 700;
         font-size: 2rem;
     }
+    .hidden_title{
+        display: block;
+        margin-bottom: 1rem;
+
+    }
   /* --------------------------------- */
     .our_services_container {
         margin-top: 3rem;
@@ -87,6 +95,11 @@
     .our_services_container {
         /* margin-top: 20rem; */
     }
+    .hidden_title{
+        display: block;
+        margin-bottom: 1rem;
+
+    }
     .our_services_section {
         height: 50vh;
         justify-content: center;
@@ -105,6 +118,9 @@
 @media only screen and (min-width: 1200px) {
     .our_services_container {
         margin-top: 5rem;
+    }
+    .hidden_title{
+        display: none;
     }
     .our_services_section {
         height: 100vh;

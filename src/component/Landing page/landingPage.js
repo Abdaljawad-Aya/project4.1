@@ -10,6 +10,7 @@ import "./css/landingPageTestimonial.css"
 import { Carousel } from 'react-responsive-carousel';
 
 import Video from "./video";
+import VideoBackgroud from "../images/Background Video.mp4"
 import OurServices from "../data/our_services";
 import Developers from "../data/developers";
 import PhotographersCards from "../PhotographersCards";
@@ -26,6 +27,8 @@ import Img8 from "../images/developer3.jpg";
 
 class LandingPage extends React.Component {
     render() {
+        document.title ="DAMSA | Landing Page"; 
+        document.getElementsByTagName("META")[2].content="Damsa is a website for booking photography sessions anywhere and anytime we have the best developers and photographers out there"; 
         return (
             <div>
                 <PageIntro logo={Logo} />
@@ -44,35 +47,36 @@ class PageIntro extends React.Component {
         return (
         <div className="landing_page_intro">
             <div className="intro_left_part">
-            <div className="intro_title">MEMORIES WORTH CHERISHING</div>
+            <div><h1 className="intro_title">MEMORIES WORTH CHERISHING</h1></div>
             <div>
                 Create the memories and celebrate the magic with Damsa - a
                 beautifully designed photography sessions website that has it all.
             </div>
             {/* <div><img src={this.props.logo}></img></div> */}
             <div>
-                <button className="btn1">Our Services</button>
+            <a href="#our_services_container"><button className="btn1">Our Services</button></a>
             </div>
             </div>
             <div className="intro_right_part">
             <div className="landing_page_grid">
                 <div className="landing_page_grid_item1">
-                <img src={Img1}></img>
+                <img src={Img1} alt="father and baby picture"></img>
                 </div>
                 <div className="landing_page_grid_item2">
-                <img src={Img2}></img>
+                <img src={Img2} alt="family celebrating picture"></img>
                 </div>
                 <div className="landing_page_grid_item3">
-                <img src={Img3}></img>
+                <img src={Img3} alt="couples in a car picture"></img>
                 </div>
                 <div className="landing_page_grid_item4">
-                <img src={Img4}></img>
+                <img src={Img4} alt="girl celebrating graduation picture"></img>
                 </div>
                 <div className="landing_page_grid_item5">
-                <img src={Img5}></img>
+                <img src={Img5} alt="girl graduating picture"></img>
                 </div>
             </div>
             </div>
+            <a href="#our_services_container"> <button className="down_button"><i class="fas fa-caret-down"></i></button></a>
         </div>
         );
     }
@@ -81,9 +85,8 @@ class PageIntro extends React.Component {
 class OurServicesSections extends React.Component {
     render() {
         return (
-        <div className="our_services_container">
-            <div className="intro_title"> Our Services</div>
-            <hr className="mb-5" />
+        <div className="our_services_container" id="our_services_container">
+            <div className="intro_title hidden_title"> Our Services</div>
             {this.props.services.map((service) => (
             <OurServicesSection key={service.id} service={service} />
             ))}
@@ -94,8 +97,9 @@ class OurServicesSections extends React.Component {
 
 class OurServicesSection extends React.Component {
     render() {
+        const nextId= this.props.service.id +1;
         return (
-        <div className="our_services_section">
+        <div className="our_services_section" id={this.props.service.id+" service"}>
             <div className="opaque_container">
             <div className="opaque_container_title">
                 {this.props.service.title}
@@ -103,20 +107,25 @@ class OurServicesSection extends React.Component {
             <div>{this.props.service.description} </div>
             </div>
             <div className="our_services_left_part">
-            <img src={this.props.service.img1}></img>
+            <img src={this.props.service.img1} alt={this.props.service.title+"photoshoot picture 1"}></img>
             </div>
             <div className="our_services_right_part">
             <div className="our_services_right_part_img1">
-                <img src={this.props.service.img2}></img>
+                <img src={this.props.service.img2} alt={this.props.service.title+"photoshoot picture 2"}></img>
             </div>
             <div className="our_services_right_part_img2">
                 {" "}
-                <img src={this.props.service.img3}></img>
+                <img src={this.props.service.img3} alt={this.props.service.title+"photoshoot picture 3"}></img>
             </div>
             <div className="our_services_right_part_img1">
-                <img src={this.props.service.img4}></img>
+                <img src={this.props.service.img4} alt={this.props.service.title+"photoshoot picture 4"}></img>
             </div>
             </div>
+            {this.props.service.id === 3 
+            ? <a href="#videos_container"> <button className="down_button"><i class="fas fa-caret-down"></i></button></a>
+            :<a href={"#"+nextId+" service"}> <button className="down_button"><i class="fas fa-caret-down"></i></button></a>
+            }
+
         </div>
         );
     }
@@ -128,23 +137,28 @@ class Videos extends React.Component {
         this.state = {
             videos: [],
         };
-}
-async componentDidMount() {
-    const url =
-        "https://youtube.googleapis.com/youtube/v3/playlistItems?part=contentDetails&maxResults=5&playlistId=PL9Fw1J2bLM2FwcSUEVmjlNDGDIjgX1f4X&key=AIzaSyBdxvztZnz4ZOl-ShY06LoMVx8_UeGDZck";
-    const response = await fetch(url);
-    const data = await response.json();
-    this.setState({ videos: data.items });
-}
+        }
+        async componentDidMount() {
+            const url =
+                "https://youtube.googleapis.com/youtube/v3/playlistItems?part=contentDetails&maxResults=5&playlistId=PL9Fw1J2bLM2FwcSUEVmjlNDGDIjgX1f4X&key=AIzaSyBdxvztZnz4ZOl-ShY06LoMVx8_UeGDZck";
+            const response = await fetch(url);
+            const data = await response.json();
+            this.setState({ videos: data.items });
+        }
     render() {
         const { videos } = this.state;
         const renderVideos = videos.map((video) => {
             return <Video key={video.contentDetails.videoId} video={video} />;
         });
         return (
-            <div>
+            <div className="videos_container" id="videos_container">
+                <video autoPlay muted loop id="myVideo">
+                    <source src={VideoBackgroud} type="video/mp4" />
+                    Your browser does not support HTML5 video.
+                </video>
                 <div className="intro_title"> Tips For You</div>
                 <div className="videos_section">{renderVideos}</div>
+                <a href="#testimonials_section"> <button className="down_button"><i class="fas fa-caret-down"></i></button></a>
             </div>
         );
     }
@@ -153,7 +167,7 @@ async componentDidMount() {
 class Testimonials extends React.Component{
     render(){
         return(
-            <div className="testimonials_section">
+            <div className="testimonials_section" id="testimonials_section">
                 <div className="intro_title">Testimonials</div>
                 <Carousel
                 showArrows={true}
@@ -163,7 +177,7 @@ class Testimonials extends React.Component{
                 autoPlay={true}
                 interval={6100}>
                 <div>
-                <img src={Img6} />
+                <img src={Img6} alt="customer 1 picture" />
                 <div className="myCarousel">
                     <h3>Shirley Fultz</h3>
                     <h4>Designer</h4>
@@ -175,7 +189,7 @@ class Testimonials extends React.Component{
                 </div>
         
                 <div>
-                <img src={Img7} />
+                <img src={Img7} alt="customer 2 picture" />
                 <div className="myCarousel">
                     <h3>Daniel Keystone</h3>
                     <h4>Designer</h4>
@@ -187,7 +201,7 @@ class Testimonials extends React.Component{
                 </div>
         
                 <div>
-                <img src={Img8} />
+                <img src={Img8} alt="customer 3 picture" />
                 <div className="myCarousel">
                     <h3>Theo Sorel</h3>
                     <h4>Designer</h4>
@@ -198,7 +212,9 @@ class Testimonials extends React.Component{
                 </div>
                 </div>
             </Carousel>
-          </div>
+        
+            <a href="#developers_section"> <button className="down_button"><i class="fas fa-caret-down"></i></button></a>
+        </div>
         )
     }
 }
@@ -206,7 +222,7 @@ class Testimonials extends React.Component{
 class DeveloperCards extends React.Component{
     render(){
         return(
-            <div className="developers_section">
+            <div className="developers_section" id="developers_section">
                 <div className="intro_title">Our Developers</div>
                 <div className="developers_cards">
                 {this.props.developers.map((developer) => <DeveloperCard key={developer.id} developer={developer}/>) }
@@ -221,7 +237,7 @@ class DeveloperCard extends React.Component{
         return(
             <div className="landing_page_card">
                     <div className="user_picture">
-                        <img src={this.props.developer.picture} alt="user picture"></img> 
+                        <img src={this.props.developer.picture} alt={this.props.developer.name+" user picture"}></img> 
                     </div>
                     <div className="card_body">
                         <div><h3>{this.props.developer.name}</h3></div>
@@ -240,19 +256,4 @@ class DeveloperCard extends React.Component{
 }
 
 
-
 export default LandingPage;
-
-   {/* <div class="row">
-                    <div class="example-1 card">
-                        <div class="wrapper">
-                        <div class="data">
-                            <div class="content">
-                            <span class="author">Jane Doe</span>
-                            <h1 class="title"><a href="#">Boxing icon has the will for a couple more fights</a></h1>
-                            <p class="text">The highly anticipated world championship fight will take place at 10am and is the second major boxing blockbuster in the nation after 43 years.</p>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                </div> */}

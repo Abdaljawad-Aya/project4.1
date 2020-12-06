@@ -1,5 +1,10 @@
 .testimonials_section{
     margin-top: 6rem;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding-top: 8rem;
+    position: relative;
 }
 .carousel-root {
     width: 64% !important;
@@ -20,7 +25,7 @@
   }
   
   .myCarousel {
-    background: #fafafa;
+    /* background: #fafafa; */
     margin-top: -6%;
     width: 54%;
     margin-left: auto;
@@ -31,7 +36,7 @@
     padding-right: 5%;
     border: none;
     height: 286px;
-    box-shadow: 5px 10px 18px #666666;
+    /* box-shadow: 5px 10px 18px #666666; */
 
   }
   
@@ -90,8 +95,10 @@
   .carousel.carousel-slider .control-arrow {
     background:   #bdaa9b !important;
     height: 50px !important;
+    width: 50px;
     position: absolute;
     top: 35% !important;
+    border-radius: 50%;
   }
   
   .App {
@@ -99,6 +106,7 @@
   }
   
   @media only screen and (max-width: 934px) {
+
     .carousel-root {
       outline: 0;
       width: 93% !important;
@@ -127,3 +135,28 @@
       border-radius: 50%;
     }
   }
+
+  /* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .testimonials_section{
+    margin-top: 1rem;
+    height: 80vh;
+  
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .testimonials_section{
+    margin-top: 1rem;
+    height: 60vh;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px){
+  .testimonials_section{
+    margin-top: 6rem;
+    height: 100vh;
+  
+  }
+}

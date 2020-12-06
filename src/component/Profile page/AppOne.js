@@ -15,12 +15,17 @@ import CardGo from './CardGo';
 import React, { Component, Profiler } from 'react';
 const a = ['user' , ' offers','offers1' , 'date']
 class AppOne extends Component{
- 
+
+
+  
   state = {
-    user: JSON.parse(sessionStorage.getItem("user")) ,
+    user: JSON.parse(localStorage.getItem("userN")) ,
     date: JSON.parse(sessionStorage.getItem("date")), 
     offer: JSON.parse(sessionStorage.getItem("offers1")), 
   }
+
+
+
   render(){
    
     return (

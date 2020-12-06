@@ -49,7 +49,7 @@ export default function RegisterForm() {
       
       if ((JSON.stringify(data.password) === JSON.stringify(data.confirm))) {
               
-        window.localStorage.setItem(data.username, JSON.stringify(data))
+        window.localStorage.setItem("userN", JSON.stringify(data))
         console.log(data);
         // alert('the account was created')
         { window.location.href = '/Login' }
